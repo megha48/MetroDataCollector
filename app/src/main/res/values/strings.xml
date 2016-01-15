@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MetroSense</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <!-- Button text -->
+    <string name="rank">Your Rank</string>
+    <string name="btn_exit_from_app">QUIT</string>
+    <string name="btn_check_updates">Check for updates</string>
+    <string name="btn_entry_station">Select Entry Station</string>
+    <string name="btn_exit_station">Select Exit Station</string>
+    <string name="btn_fileupload">File Upload</string>
+    <string name="txt_file_upload">--------Upload Data with G+ Sign In--------</string>
+    <string name="btn_note_on_time">Note Entry Time</string>
+    <string name="launch_app">Start Collecting</string>
+    <string name="btn_note_off_time">Note Exit Time</string>
+
+</resources>

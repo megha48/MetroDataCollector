@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="project.metrodatacollector" >
+
+    <uses-sdk android:minSdkVersion="11" android:targetSdkVersion="19"/>&gt;
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
+    <application android:allowBackup="true" android:icon="@drawable/imgicon" android:label="@string/app_name" android:theme="@style/AppTheme">
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="project.metrodatacollector.MainActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="project.metrodatacollector.AboutActivity">
+
+        </activity>
+
+        <activity android:name="project.metrodatacollector.StationsList">
+
+        </activity>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+
+        <receiver android:enabled="true" android:exported="true" android:name="project.metrodatacollector.BootStartUpReceiver" android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name="project.metrodatacollector.SensingController">
+            <intent-filter>
+                <action android:name="collect_sensor_data"/>
+            </intent-filter>
+        </receiver>
+        <!--
+        <receiver android:name="project.metrodatacollector.WiFiBroadcastListener">
+            <intent-filter>
+                <action android:name="android.net.wifi.supplicant.STATE_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        -->
+        <receiver android:name="project.metrodatacollector.Uploader.BatteryBroadcastHandler">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="project.metrodatacollector.SensorService"/>
+        <service android:name="project.metrodatacollector.LocationService"/>
+        <service android:name="project.metrodatacollector.Uploader.FileUploaderService"/>
+
+
+
+        <meta-data android:name="com.crashlytics.ApiKey" android:value="39f16a891a619038bbc5596ea7f26f673ae272cc"/>
+    </application>
+
+
+</manifest>
